@@ -102,5 +102,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Custom Commands
 clear
+cd scm
 neofetch
 ls -la
