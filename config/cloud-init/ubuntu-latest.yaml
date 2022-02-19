@@ -1,7 +1,9 @@
 #cloud-config
 
 users:
-  - name: ubuntu
+  - name: paul
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: ubuntu, adm, dialout, cdrom, floppy, sudo, audio, dip, video, plugdev, netdev, lxd, docker
     ssh_authorized_keys:
     - ssh-public-key
 
