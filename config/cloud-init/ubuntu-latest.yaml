@@ -3,7 +3,7 @@
 users:
   - name: ubuntu
     ssh_authorized_keys:
-    - $( cat ~/.ssh/id_rsa.pub )
+    - $( cat ~/.ssh/multipass.pub )
 
 package_update: true
 package_upgrade: true
@@ -26,5 +26,5 @@ runcmd:
   - runuser -l ubuntu -c 'sed -i "s/robbyrussell/spaceship/" ~/.zshrc'
   - runuser -l ubuntu -c 'sudo curl -L -o /usr/local/bin/aws-vault https://github.com/99designs/aws-vault/releases/latest/download/aws-vault-linux-amd64'
   - runuser -l ubuntu -c 'sudo chmod 755 /usr/local/bin/aws-vault'
-  - runuser -l ubuntu -c 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install && rm awscliv2.zip && rm -rf aws'
+  - runuser -l ubuntu -c 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip -qq awscliv2.zip && sudo ./aws/install && rm awscliv2.zip && rm -rf aws'
   
