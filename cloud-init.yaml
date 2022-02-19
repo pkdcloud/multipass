@@ -1,0 +1,25 @@
+#cloud-config
+
+package_update: true
+package_upgrade: true
+package_reboot_if_required: true
+
+packages:
+  - zsh
+  - docker.io
+  - docker-compose
+  - make
+  - neofetch
+  - unzip
+
+runcmd:
+  - sudo usermod -aG docker ubuntu
+  - runuser -l ubuntu -c 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/pkdcloud/multipass/master/scripts/install.sh)" "" --unattended'
+  - runuser -l ubuntu -c 'git clone https://github.com/spaceship-prompt/spaceship-prompt.git "/home/ubuntu/.oh-my-zsh/custom/themes/spaceship-prompt" --depth=1'
+  - runuser -l ubuntu -c 'ln -s "/home/ubuntu/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "/home/ubuntu/.oh-my-zsh/custom/themes/spaceship.zsh-theme"'
+  - runuser -l ubuntu -c 'sed -i "s/robbyrussell/spaceship/" ~/.zshrc'
+  - runuser -l ubuntu -c 'cd scm && git clone https://github.com/pkdcloud/multipass.git'
+  - runuser -l ubuntu -c 'sudo curl -L -o /usr/local/bin/aws-vault https://github.com/99designs/aws-vault/releases/latest/download/aws-vault-linux-amd64'
+  - runuser -l ubuntu -c 'sudo chmod 755 /usr/local/bin/aws-vault'
+  - runuser -l ubuntu -c 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install && rm awscliv2.zip && rm -rf aws'
+  
