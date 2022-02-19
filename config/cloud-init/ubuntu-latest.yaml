@@ -3,7 +3,7 @@
 users:
   - name: ubuntu
     ssh_authorized_keys:
-    - $( cat ~/.ssh/multipass.pub )
+    - ssh-public-key
 
 package_update: true
 package_upgrade: true
