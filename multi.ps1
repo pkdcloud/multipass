@@ -10,7 +10,7 @@ switch ($COMMAND)
 		#rm $env:USERPROFILE/.ssh/multipass-$MACHINE_NAME
 		#rm $env:USERPROFILE/.ssh/multipass-$MACHINE_NAME.pub
 		ssh-keygen -t rsa -b 4096 -f $env:USERPROFILE/.ssh/multipass-$MACHINE_NAME -q -N '""'
-		multipass launch -c 4 -m 8192M -vvvv --name $MACHINE_NAME --cloud-init .\config\cloud-init\ubuntu-latest.yaml
+		multipass launch -c 4 -m 8192M -v --name $MACHINE_NAME --cloud-init .\config\cloud-init\ubuntu-latest.yaml
 		multipass shell $MACHINE_NAME
 	}
     "shell" {
