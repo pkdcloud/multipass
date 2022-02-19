@@ -7,12 +7,17 @@ $CLOUD_INIT_SCRIPT=$args[2]
 switch ($COMMAND)
 {
     "launch" {
-		multipass delete --all
-		multipass purge
-		multipass launch --name $MACHINE_NAME --cloud-init .\config\cloud-init\ubuntu-latest.yaml
+		Remove-Item $env:USERPROFILE/.ssh/multipass-$MACHINE_NAME
+		Remove-Item $env:USERPROFILE/.ssh/multipass-$MACHINE_NAME.pub
+		ssh-keygen -t rsa -b 4096 -f $env:USERPROFILE/.ssh/multipass-$MACHINE_NAME -q -N '""'
+		multipass launch -c 4 -m 8192M -vvvv --name $MACHINE_NAME --cloud-init .\config\cloud-init\ubuntu-latest.yaml
 		multipass shell $MACHINE_NAME
 	}
     "shell" {
 		multipass shell $MACHINE_NAME
+	}
+    "clean" {
+		multipass delete --all
+		multipass purge
 	}
 }
