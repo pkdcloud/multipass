@@ -10,7 +10,8 @@ This repository allows creation of new Ubuntu Virtual Machines using multipass a
 
 ## Requirements
 
-- multipass
+- git 		:	https://git-scm.com/
+- multipass : 	https://multipass.run/
 
 ## Tools install
 
@@ -20,13 +21,17 @@ Take a look at the cloud-init.yaml file
 
 To use just clone this repo and change into the directory.
 
+```
+.\multi.ps1 [COMMAND] Args
+```
+
 #### Powershell
 
 ```ps
 .\multi.ps1 ubuntu-1
 ```
 
-#### Linux & MacOS
+#### Linux & MacOS (Coming Soon)
 
 ```sh
 ./multi.sh ubuntu-1
