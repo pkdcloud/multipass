@@ -1,9 +1,7 @@
 #cloud-config
 
 users:
-  - name: paul
-    sudo: ALL=(ALL) NOPASSWD:ALL
-    groups: ubuntu, adm, dialout, cdrom, floppy, sudo, audio, dip, video, plugdev, netdev, lxd, docker
+  - name: ubuntu
     ssh_authorized_keys:
     - ssh-public-key
 
@@ -29,4 +27,4 @@ runcmd:
   - runuser -l ubuntu -c 'sudo curl -L -o /usr/local/bin/aws-vault https://github.com/99designs/aws-vault/releases/latest/download/aws-vault-linux-amd64'
   - runuser -l ubuntu -c 'sudo chmod 755 /usr/local/bin/aws-vault'
   - runuser -l ubuntu -c 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip -qq awscliv2.zip && sudo ./aws/install && rm awscliv2.zip && rm -rf aws'
-  
+  - runuser -l ubuntu -c 'mkdir scm'

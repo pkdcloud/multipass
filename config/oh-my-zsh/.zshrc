@@ -103,6 +103,4 @@ source $ZSH/oh-my-zsh.sh
 # Custom Commands
 clear
 neofetch
-mkdir scm
-cd scm
 ls -la
