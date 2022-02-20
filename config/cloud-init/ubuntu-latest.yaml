@@ -24,8 +24,8 @@ write_files:
 
 runcmd:
   - sudo usermod -aG docker ubuntu
-  - runuser -l ubuntu -c 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/pkdcloud/multipass/scripts/oh-my-zsh/install.sh)" "" --unattended'
-  - runuser -l ubuntu -c 'sudo curl -L -o ~/.zshrc https://raw.githubusercontent.com/pkdcloud/multipass/config/oh-my-zsh/.zshrc'
+  - runuser -l ubuntu -c 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/pkdcloud/multipass/master/scripts/oh-my-zsh/install.sh)" "" --unattended'
+  - runuser -l ubuntu -c 'sudo curl -L -o ~/.zshrc https://raw.githubusercontent.com/pkdcloud/multipass/master/config/oh-my-zsh/.zshrc'
   - runuser -l ubuntu -c 'git clone https://github.com/spaceship-prompt/spaceship-prompt.git "/home/ubuntu/.oh-my-zsh/custom/themes/spaceship-prompt" --depth=1'
   - runuser -l ubuntu -c 'ln -s "/home/ubuntu/.oh-my-zsh/custom/themes/spaceship-prompt/spaceship.zsh-theme" "/home/ubuntu/.oh-my-zsh/custom/themes/spaceship.zsh-theme"'
   - runuser -l ubuntu -c 'sed -i "s/robbyrussell/spaceship/" ~/.zshrc'
