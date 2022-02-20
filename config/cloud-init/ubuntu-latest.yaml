@@ -3,7 +3,7 @@
 users:
   - name: ubuntu
     ssh_authorized_keys:
-    - ssh-public-key
+    - {{ssh-public-key}}
 
 package_update: true
 package_upgrade: true
@@ -16,6 +16,13 @@ packages:
   - make
   - neofetch
   - unzip
+
+write_files:
+- encoding: b64
+  content: {{aws-config}}
+  owner: ubuntu:ubuntu
+  path: /home/ubuntu/.aws/config
+  permissions: '0644'
 
 runcmd:
   - sudo usermod -aG docker ubuntu
