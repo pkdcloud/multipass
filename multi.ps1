@@ -44,7 +44,7 @@ switch ($COMMAND) {
 		CloudInitStringReplace (Get-Content -path $CLOUD_INIT_FILE -Raw) (Base64EncodeFile $AWS_CONFIG_PATH) "{{aws-config}}" 
 
 		Write-Host "--- Launching Virtual Machine"
-		multipass launch -c 4 -m 8192M -vvvv --name $MACHINE_NAME --cloud-init $CLOUD_INIT_FILE
+		multipass launch -c 4 -m 8192M --name $MACHINE_NAME --cloud-init $CLOUD_INIT_FILE
 
 		Write-Host "--- Cleaning Up"
 		Remove-Item $CLOUD_INIT_FILE
