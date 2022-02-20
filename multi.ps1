@@ -56,7 +56,10 @@ switch ($COMMAND) {
 		multipass shell $MACHINE_NAME
 	}
 	"clean" {
+		Write-Host "--- Deleting SSH key"
 		DeleteSSHKey $MULTIPASS_KEY_NAME
+
+		Write-Host "--- Deleting Multipass VM's"
 		multipass delete --all
 		multipass purge
 	}
