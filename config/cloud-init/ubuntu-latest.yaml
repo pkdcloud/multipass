@@ -33,4 +33,4 @@ runcmd:
   - runuser -l ubuntu -c 'sudo chmod 755 /usr/local/bin/aws-vault'
   - runuser -l ubuntu -c 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip -qq awscliv2.zip && sudo ./aws/install && rm awscliv2.zip && rm -rf aws'
   - runuser -l ubuntu -c 'mkdir scm'
-  - runuser -l ubuntu -c 'cp -r /var/tmp/.aws /home/ubuntu && rm -rf /var/tmp/.aws'
+  - runuser -l ubuntu -c 'cp -r /var/tmp/.aws /home/ubuntu && sudo rm -rf /var/tmp/.aws'
