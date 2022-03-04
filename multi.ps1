@@ -1,5 +1,7 @@
 # multi.ps1
 
+# TODO - check vars first and error on null
+
 $COMMAND = $args[0]
 $MACHINE_NAME = $args[1]
 
